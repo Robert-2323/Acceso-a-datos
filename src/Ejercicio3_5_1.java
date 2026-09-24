@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Ejercicio3_5_1 {
     public static void main(String[] args) {
@@ -29,9 +30,30 @@ public class Ejercicio3_5_1 {
                 System.out.println("El archivo no ha podido ser creado");
             }
 
+            /*3._ Mostrar el contenido del directorio copias, indicando para cada elemento
+            si se trata de un fichero o de un directorio.*/
+            File[] archivos=dirCopias.listFiles();
+            if(archivos!=null){
+                for(File archivo:archivos){
+                    if(archivo.isDirectory()){
+                        System.out.println("Directorio: "+archivo.getName());
+                    }
+                    if(archivo.isFile()){
+                        System.out.println("Archivo: "+archivo.getName());
+                    }
+                }
+            }
+
+
+
+            /*4._ Modificar el programa anterior para eliminar el fichero config.txt.
+            Comprobar qué ocurre al intentar eliminar posteriormente el directorio copias.*/
+
+
+
         }
         catch (IOException e){
-            System.out.println("No se ha podido crear el archivo");
+            System.out.println("ERROR: No se ha podido crear el archivo");
         }
 
     }
