@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Ejercicio4_5 {
@@ -45,6 +43,44 @@ public class Ejercicio4_5 {
         }catch (IOException e){
             System.out.println("ERROR: No se ha podido leer el fichero");
         }
+
+        /*3._ Desarrollar un programa que copie el contenido del fichero datos.txt en un
+        nuevo fichero llamado copia.txt.*/
+
+        try(BufferedReader br=new BufferedReader(new FileReader("copias/datos.txt"));
+            BufferedWriter bw=new BufferedWriter(new FileWriter("copias/copia.txt"))){
+
+            String line;
+            while((line=br.readLine())!=null){
+                bw.write(line);
+                bw.newLine();
+            }
+
+        }catch(IOException e){
+            System.out.println("ERROR: No se pudo leer el archivo");
+        }
+
+        /*4._ Modificar el ejercicio anterior para que solo se copien las líneas que contienen texto,
+        omitiendo las líneas vacías.*/
+        try(BufferedReader br=new BufferedReader(new FileReader("copias/datos.txt"));
+            BufferedWriter bw=new BufferedWriter(new FileWriter("copias/copia.txt"))){
+
+            String line;
+            while((line=br.readLine())!=null){
+
+                if(line.trim().isEmpty()) {
+                    continue;
+                }
+                bw.write(line);
+                bw.newLine();
+
+            }
+
+        }catch(IOException e){
+            System.out.println("ERROR: No se pudo leer el archivo");
+        }
+
+
 
     }
 }
