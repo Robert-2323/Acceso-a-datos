@@ -48,7 +48,24 @@ public class Ejercicio3_5_1 {
 
             /*4._ Modificar el programa anterior para eliminar el fichero config.txt.
             Comprobar qué ocurre al intentar eliminar posteriormente el directorio copias.*/
+           /* if(archivos!=null){
+                for(File archivo:archivos){
+                    if(archivo.isDirectory()){
 
+                        System.out.println("Directorio: "+archivo.getName());
+                    }
+                    if(archivo.isFile() ){
+                        if(archivo.delete()){
+                            System.out.println("El archivo  "+archivo.getName()+" a sido borrado correctamente");
+                        }else{
+                            System.out.println("No se ha podido borrar el archivo");
+                        }
+                    }
+                }
+                if(dirCopias.delete()){
+                    System.out.println("El directorio ha sido borrado correctamente");
+                }
+            }*/
 
 
         }
